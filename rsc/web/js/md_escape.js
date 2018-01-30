@@ -3,12 +3,12 @@
 	var raw = document.createElement("textarea");
 	var escaped = document.createElement("textarea");
 	var btn = document.createElement("button");
-  var elements = [raw, escaped, btn];
-  for (var i=0;i<elements.length;i++) box.append(elements[i]);
-  for (var i=0;i<2;i++) {
-  	elements[i].setAttribute("rows","10");
-	  elements[i].setAttribute("cols","80");
-  }
+	var elements = [raw, escaped, btn];
+	for (var i=0;i<elements.length;i++) box.append(elements[i]);
+	for (var i=0;i<2;i++) {
+		elements[i].setAttribute("rows","10");
+		elements[i].setAttribute("cols","80");
+	}
 	btn.innerText = "Close Me";
 	function closeMe () { box.parentNode.removeChild(box); }
 	btn.onclick = closeMe;

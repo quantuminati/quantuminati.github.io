@@ -152,35 +152,35 @@ source env/bin/activate
 DEBUG = False
 
 LOGGING = {
-\t'version': 1,
-\t'disable_existing_loggers': False,
-\t'handlers': {
-\t\t'console': {
-\t\t\t'class': 'logging.StreamHandler',
-\t\t},
-\t},
-\t'loggers': {
-\t\t'django.request': {
-\t\t\t'handlers': ['console'],
-\t\t\t'level': 'INFO',
-\t\t\t'propogate': False
-\t\t}
-\t}
+	'version': 1,
+	'disable_existing_loggers': False,
+	'handlers': {
+		'console': {
+			'class': 'logging.StreamHandler',
+		},
+	},
+	'loggers': {
+		'django.request': {
+			'handlers': ['console'],
+			'level': 'INFO',
+			'propogate': False
+		}
+	}
 }
 
 # And set up your DB
 DATABASES = {
-\t'default': {
-\t \t'ENGINE': 'django.db.backends.mysql',
-\t \t'NAME': os.environ.get('DATABASE_NAME',''),
-\t \t'USER': os.environ.get('DATABASE_USER',''),
-\t \t'PASSWORD': os.environ.get('DATABASE_PASSWORD',''),
-\t \t'HOST': os.environ.get('DATABASE_HOST',''),
-\t \t'PORT': os.environ.get('DATABASE_PORT',''),
-\t \t'OPTIONS': {
-\t \t \t'sql_mode': 'STRICT_TRANS_TABLES',
-\t \t}
-\t}
+	'default': {
+		'ENGINE': 'django.db.backends.mysql',
+		'NAME': os.environ.get('DATABASE_NAME',''),
+		'USER': os.environ.get('DATABASE_USER',''),
+		'PASSWORD': os.environ.get('DATABASE_PASSWORD',''),
+		'HOST': os.environ.get('DATABASE_HOST',''),
+		'PORT': os.environ.get('DATABASE_PORT',''),
+		'OPTIONS': {
+			'sql_mode': 'STRICT_TRANS_TABLES',
+		}
+	}
 }
 # at the bottom
 STATIC_ROOT = 'static'

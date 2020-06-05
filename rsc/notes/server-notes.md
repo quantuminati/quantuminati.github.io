@@ -187,12 +187,13 @@ STATIC_ROOT = 'static'
 ```
 
 add to nginx /etc/nginx/sites-enabled/default -> remember the trailing "/"
+inside a server section
 
 ```
-location /static/ {
-	alias /path/to/project/static/;
-	expires modified +1w;
-}
+	location /static/ {
+		alias /path/to/project/static/;
+		expires modified +1w;
+	}
 ```
 
 run the command

@@ -28,10 +28,10 @@ ssh-keygen -t rsa -b 4096 -C "..."
 
 ```
 Host < your_hostname_nickname >
-\tUser < your_username >
-\tHostname < fqdn_hostname >
-\tPreferredAuthentications publickey
-\tIdentityFile < /home/user_name/.ssh/id_rsa... >
+	User < your_username >
+	Hostname < fqdn_hostname >
+	PreferredAuthentications publickey
+	IdentityFile < /home/user_name/.ssh/id_rsa... >
 ```
 
 8. Critical utility components
@@ -53,7 +53,7 @@ sudo timedatectl set-timezone America/Los_Angeles
 colorscheme jellybeans
 syntax on
 if has("autocmd")
-\tau BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g\`\"" | endif
+	au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g\`\"" | endif
 endif
 set colorcolumn=80
 ```
@@ -294,27 +294,27 @@ from django.shortcuts import render
 CERT_FILE = "cert.txt"
 
 def certLog (request):
-return render(
-request,
-CERT_FILE,
-context={}
-)
+	return render(
+		request,
+		CERT_FILE,
+		context={}
+	)
 ```
 
 edit urls.py to add this pattern
 ```python
 path_re(
-r'^.well-known/acme-challenge/',
-views.certLog
+	r'^.well-known/acme-challenge/',
+	views.certLog
 )
 ```
 
 update template dirs in settings.py:
 ```python
 TEMPLATES = [
-{
-'BACKEND': 'django.template.backends.django.DjangoTemplates',
-'DIRS': ['', '/'],
+	{
+		'BACKEND': 'django.template.backends.django.DjangoTemplates',
+		'DIRS': ['', '/'],
 ...
 ```
 
@@ -392,8 +392,8 @@ you should now have https access to your site
 ```python
 # to enable django-polymorphic - add to settings.py.
 INSTALLED_APPS += (
-'polymorphic',
-'django.contrib.contenttypes',
+	'polymorphic',
+	'django.contrib.contenttypes',
 )
 ```
 
@@ -452,38 +452,38 @@ def check_and_log_basics (func):
 
 @check_and_log_basics
 def home (request):
-return render(
-request,
-"home.html",
-context={}
-)
+	return render(
+		request,
+		"home.html",
+		context={}
+	)
 
 @check_and_log_basics
 def custom404 (request, e):
-return render(
-request,
-"404.html",
-status=404,
-context={}
-)
+	return render(
+		request,
+		"404.html",
+		status=404,
+		context={}
+	)
 
 @check_and_log_basics
 def custom500 (request):
-return render(
-request,
-"500.html",
-status=500,
-context={}
-)
+	return render(
+		request,
+		"500.html",
+		status=500,
+		context={}
+	)
 ```
 
 ```python
 # make sure re_path is imported from django.urls
 # add the following to //urls.py
 re_path(
-r'^$',
-views.home,
-name='home'
+	r'^$',
+	views.home,
+	name='home'
 )
 
 # outside the main array
@@ -522,19 +522,14 @@ INSTALLED_APPS = (
 
 # Then
 TEMPLATES = [
-{
-'OPTIONS': {
-'context_processors': [
+	{
+		'OPTIONS': {
+			'context_processors': [
 ... existing...
-'social.apps.django_app.context_processors.backends',
-'social.apps.django_app.context_processors.login_redirect',
+				'social.apps.django_app.context_processors.backends',
+				'social.apps.django_app.context_processors.login_redirect',
+
 # added at end of settings.py
-AUTHENTICATION_BACKENDS = (
-'social.backends.facebook.FacebookOAuth2',
-'social.backends.google.GoogleOAuth2',
-'social.backends.twitter.TwitterOAuth',
-'django.contrib.auth.backends.ModelBackend',
-)
 USE_X_FORWARDED_HOST = True
 USE_X_FORWARDED_PORT = True
 

@@ -122,11 +122,11 @@ django-admin startproject
 
 ```sh
 # at the end of the deactivate method in the script - mine had 4 spaces instead of tab chars
-\tunset DATABASE_NAME
-\tunset DATABASE_USER
-\tunset DATABASE_PORT
-\tunset DATABASE_HOST
-\tunset DATABASE_PASSWORD
+	unset DATABASE_NAME
+	unset DATABASE_USER
+	unset DATABASE_PORT
+	unset DATABASE_HOST
+	unset DATABASE_PASSWORD
 ```
 
 ```sh
@@ -190,8 +190,8 @@ add to nginx /etc/nginx/sites-enabled/default -> remember the trailing "/"
 
 ```
 location /static/ {
-alias /path/to/project/static/;
-expires modified +1w;
+	alias /path/to/project/static/;
+	expires modified +1w;
 }
 ```
 
@@ -230,8 +230,8 @@ server_name fqdn;
         listen [::]:443 ssl default_server;
 # add things like this - but use the snakeoil the first time then your certs in
 # ssl_certificate /etc/letsencrypt/live/fqdn/fullchain.pem
-#        include snippets/ssl-fqdn.conf;
- #       include snippets/ssl-params.conf;
+#       include snippets/ssl-fqdn.conf;
+#       include snippets/ssl-params.conf;
 
 # after https working...
 #        if ($scheme = http ) {                                                  
@@ -240,13 +240,13 @@ server_name fqdn;
 
 # replace with your preferred port
 # try_files $uri $uri/ =404;
-proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-proxy_set_header Host $host;
-proxy_set_header X-Forwarded-Host $host;
-proxy_set_header X-Forwarded-Server $host;
-proxy_set_header X-Forwarded-Proto https;
-proxy_set_header X-Forwarded-Port 443;
-proxy_pass http://127.0.0.1:8842;
+	proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+	proxy_set_header Host $host;
+	proxy_set_header X-Forwarded-Host $host;
+	proxy_set_header X-Forwarded-Server $host;
+	proxy_set_header X-Forwarded-Proto https;
+	proxy_set_header X-Forwarded-Port 443;
+	proxy_pass http://127.0.0.1:8842;
 ```
 
 ```sh

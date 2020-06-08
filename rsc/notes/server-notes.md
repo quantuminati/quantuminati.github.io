@@ -11,11 +11,11 @@ ssh-keygen -l -f /etc/ssh/ssh_host_ecdsa_key.pub
 
 Create new SUDO user `run as root`
 ```sh
-adduser jayson
-usermod -aG sudo jayson
+adduser user_name
+usermod -aG sudo user_name
 ```
 
-3. user jayson is now added, I save off a note with my convention of obfuscated passwds
+3. user user_name is now added, I save off a note with my convention of obfuscated passwds
 4. Set up local [ssh keys](https://www.quantuminati.com/2018/01/28/things-to-write-about/) and sync
 *locally*
 ```sh
@@ -63,6 +63,8 @@ set colorcolumn=80
 new method to update mysql root password but I wasn't able to, consider just always sudo mysql -u root or: https://dev.mysql.com/doc/refman/8.0/en/resetting-permissions.html
 
 note to consider sudo service mysql stop/start (after the sudo mysqld command)
+
+note: libmysqlclient-dev required or the python mysqlclient won't install
 
 ```sh
 sudo apt update

@@ -320,10 +320,11 @@ from project_name import views
 
 update template dirs in settings.py:
 ```python
-TEMPLATES = [
-	{
-		'BACKEND': 'django.template.backends.django.DjangoTemplates',
-		'DIRS': ['', '/'],
+		
+TEMPLATES = [                                                                   
+    {                                                                           
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',           
+        'DIRS': ['project_name', 'project_name/project_name'],
 ...
 ```
 

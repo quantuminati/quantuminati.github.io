@@ -312,7 +312,7 @@ from project_name import views
 
 ...
 
-	path_re(
+	re_path(
 		r'^.well-known/acme-challenge/',
 		views.certLog
 	)

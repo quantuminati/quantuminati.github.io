@@ -307,6 +307,8 @@ def certLog (request):
 edit urls.py to add this pattern
 ```python
 from django.urls import path, re_path
+# Above you added a views that needs to be included now
+from project_name import views
 
 ...
 

@@ -243,13 +243,13 @@ server_name fqdn;
 
 # replace with your preferred port
 # try_files $uri $uri/ =404;
-	proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-	proxy_set_header Host $host;
-	proxy_set_header X-Forwarded-Host $host;
-	proxy_set_header X-Forwarded-Server $host;
-	proxy_set_header X-Forwarded-Proto https;
-	proxy_set_header X-Forwarded-Port 443;
-	proxy_pass http://127.0.0.1:8842;
+		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+		proxy_set_header Host $host;
+		proxy_set_header X-Forwarded-Host $host;
+		proxy_set_header X-Forwarded-Server $host;
+		proxy_set_header X-Forwarded-Proto https;
+		proxy_set_header X-Forwarded-Port 443;
+		proxy_pass http://127.0.0.1:8842;
 ```
 
 ```sh
@@ -260,9 +260,9 @@ you will need this at some point
 and should document this test - https://www.ssllabs.com/ssltest/
 ```
 cd /etc/ssl/certs
-sudo openssl dhparam -out dhparam.pem 4096
+sudo time openssl dhparam -out dhparam.pem 4096
 -- or --
-sudo openssl dhparam -outform PEM -out /etc/ssl/certs/dhparam.pem 4096
+sudo time openssl dhparam -outform PEM -out /etc/ssl/certs/dhparam.pem 4096
 ```
 
 18. Edit python settings

@@ -306,10 +306,10 @@ def certLog (request):
 
 edit urls.py to add this pattern
 ```python
-path_re(
-	r'^.well-known/acme-challenge/',
-	views.certLog
-)
+	path_re(
+		r'^.well-known/acme-challenge/',
+		views.certLog
+	)
 ```
 
 update template dirs in settings.py:

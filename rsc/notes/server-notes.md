@@ -306,6 +306,10 @@ def certLog (request):
 
 edit urls.py to add this pattern
 ```python
+from django.urls import path, re_path
+
+...
+
 	path_re(
 		r'^.well-known/acme-challenge/',
 		views.certLog

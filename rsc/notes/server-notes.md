@@ -150,6 +150,9 @@ source env/bin/activate
 
 ```python
 # My default had 4 spaces instead of tab chars
+
+import os
+
 # Don't echo everything about your env to the world 
 DEBUG = False
 

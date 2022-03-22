@@ -39,7 +39,6 @@ Host < your_hostname_nickname >
 ```sh
 sudo apt install vim
 sudo apt install pwgen
-sudo apt install certbot
 mkdir -p ~/.vim/colors
 cd ~/.vim/colors
 curl -O https://raw.githubusercontent.com/nanotech/jellybeans.vim/master/colors/jellybeans.vim
@@ -236,8 +235,8 @@ server_name fqdn;
         listen [::]:443 ssl default_server;
 # add things like this - but use the snakeoil the first time then your certs in
 # ssl_certificate /etc/letsencrypt/live/fqdn/fullchain.pem
-#       include snippets/ssl-fqdn.conf;
-#       include snippets/ssl-params.conf;
+#       include snippets/ssl-<FQDN>.conf;
+#       include snippets/ssl-<FQDN>.conf;
 
 # after https working...
 #        if ($scheme = http ) {                                                  
@@ -254,6 +253,13 @@ server_name fqdn;
 		proxy_set_header X-Forwarded-Port 443;
 		proxy_pass http://127.0.0.1:8842;
 ```
+
+Sample snippets file
+```sh
+ssl_certificate /etc/letsencrypt/live/<FQDN>/fullchain.pem;             
+ssl_certificate_key /etc/letsencrypt/live/<FQDN>/privkey.pem;
+```
+
 
 ```sh
 sudo service nginx restart
@@ -284,6 +290,24 @@ Then access the site via your browser
 
 20. SSL cert install
 
+New certbot setup
+```sh
+sudo apt-get remove certbot
+sudo snap install core; sudo snap refresh core
+sudo snap install --classic certbot
+```
+
+New certbot command
+
+```sh
+sudo certbot certonly --nginx
+```
+New certbot test dry run
+```sh
+sudo certbot renew --dry-run
+```
+
+Old certbot
 ```sh
 sudo certbot certonly --text --keep-until-expiring --agree-tos --manual
 ```

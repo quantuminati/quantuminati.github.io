@@ -434,13 +434,18 @@ INSTALLED_APPS += (
 )
 ```
 
-22. Need to add your "app" to the INSTALLED_APPS so it can find your template html files
+22. Need to add your "app" to the INSTALLED_APPS so it can find your template html files and in DIRS relative to how you start the server
 ```python
 # add to settings.py
 
 INSTALLED_APPS += (
 	'your_app_name'
-_
+)
+
+TEMPLATES = [
+	{
+		'DIRS': ['your_app_name'],
+...
 ```
 
 23. Get a baseline view and custom error handling going

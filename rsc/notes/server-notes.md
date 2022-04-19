@@ -468,6 +468,9 @@ Mr. Watson--come here-- there has been an error. Luckily we are watching and wil
 
 ```python
 # add the following to //views.py
+
+import logging, functools, time
+
 logger = logging.getLogger("django.request")
 
 def check_and_log_basics (func):
@@ -515,8 +518,11 @@ def custom500 (request):
 ```
 
 ```python
-# make sure re_path is imported from django.urls
 # add the following to //urls.py
+
+from django.urls import path, re_path 
+
+#inside the array
 re_path(
 	r'^$',
 	views.home,

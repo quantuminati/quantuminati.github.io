@@ -434,7 +434,16 @@ INSTALLED_APPS += (
 )
 ```
 
-22. Get a baseline view and custom error handling going
+22. Need to add your "app" to the INSTALLED_APPS so it can find your template html files
+```python
+# add to settings.py
+
+INSTALLED_APPS += (
+	'your_app_name'
+_
+```
+
+23. Get a baseline view and custom error handling going
 
 ```html
 # //base.html
@@ -534,12 +543,12 @@ handler404 = views.custom404
 handler500 = views.custom500
 ```
 
-23. Now we can test some things
+24. Now we can test some things
 
 Log in ->
 https://fqdn/admin/login
 
-24. Now lets get social auth working
+25. Now lets get social auth working
 
 fb auth stuff from here with some hacks as config and some api changes
 http://artandlogic.com/2014/04/tutorial-adding-facebooktwittergoogle-authentication-to-a-django-application/
